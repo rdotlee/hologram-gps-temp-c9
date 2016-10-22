@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h3>Devicereading #<%= @devicereading.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Lat</dt>
+      <dd><%= @devicereading.lat %></dd>
+
+      <dt>Lng</dt>
+      <dd><%= @devicereading.lng %></dd>
+
+      <dt>Tmp</dt>
+      <dd><%= @devicereading.tmp %></dd>
+
+      <dt>Hum</dt>
+      <dd><%= @devicereading.hum %></dd>
+
+      <dt>Fix</dt>
+      <dd><%= @devicereading.fix %></dd>
+
+      <dt>Satellites</dt>
+      <dd><%= @devicereading.satellites %></dd>
+
+      <dt>Gpstime</dt>
+      <dd><%= @devicereading.gpstime %></dd>
+
+      <dt>Batt</dt>
+      <dd><%= @devicereading.batt %></dd>
+
+      <dt>Device</dt>
+      <dd><%= @devicereading.device_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/devicereadings" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/devicereadings/<%= @devicereading.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_devicereading/<%= @devicereading.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

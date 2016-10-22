@@ -1,0 +1,109 @@
+<!-- Validation failure messages -->
+<% if @devicereading.errors.any? %>
+  <% @devicereading.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Devicereading</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_devicereading" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for lat -->
+      <div class="form-group">
+        <label for="lat" class="control-label">
+          Lat
+        </label>
+
+        <input type="text" id="lat" name="lat" placeholder="Lat" class="form-control" value="<%= @devicereading.lat %>">
+      </div>
+
+      <!-- Label and input for lng -->
+      <div class="form-group">
+        <label for="lng" class="control-label">
+          Lng
+        </label>
+
+        <input type="text" id="lng" name="lng" placeholder="Lng" class="form-control" value="<%= @devicereading.lng %>">
+      </div>
+
+      <!-- Label and input for tmp -->
+      <div class="form-group">
+        <label for="tmp" class="control-label">
+          Tmp
+        </label>
+
+        <input type="text" id="tmp" name="tmp" placeholder="Tmp" class="form-control" value="<%= @devicereading.tmp %>">
+      </div>
+
+      <!-- Label and input for hum -->
+      <div class="form-group">
+        <label for="hum" class="control-label">
+          Hum
+        </label>
+
+        <input type="text" id="hum" name="hum" placeholder="Hum" class="form-control" value="<%= @devicereading.hum %>">
+      </div>
+
+      <!-- Label and input for fix -->
+      <div class="form-group">
+        <label for="fix" class="control-label">
+          Fix
+        </label>
+
+        <input type="text" id="fix" name="fix" placeholder="Fix" class="form-control" value="<%= @devicereading.fix %>">
+      </div>
+
+      <!-- Label and input for satellites -->
+      <div class="form-group">
+        <label for="satellites" class="control-label">
+          Satellites
+        </label>
+
+        <input type="text" id="satellites" name="satellites" placeholder="Satellites" class="form-control" value="<%= @devicereading.satellites %>">
+      </div>
+
+      <!-- Label and input for gpstime -->
+      <div class="form-group">
+        <label for="gpstime" class="control-label">
+          Gpstime
+        </label>
+
+        <input type="text" id="gpstime" name="gpstime" placeholder="Gpstime" class="form-control" value="<%= @devicereading.gpstime %>">
+      </div>
+
+      <!-- Label and input for batt -->
+      <div class="form-group">
+        <label for="batt" class="control-label">
+          Batt
+        </label>
+
+        <input type="text" id="batt" name="batt" placeholder="Batt" class="form-control" value="<%= @devicereading.batt %>">
+      </div>
+
+      <!-- Label and input for device_id -->
+      <div class="form-group">
+        <label for="device_id" class="control-label">
+          Device
+        </label>
+
+        <input type="text" id="device_id" name="device_id" placeholder="Device" class="form-control" value="<%= @devicereading.device_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Devicereading
+      </button>
+      or
+      <a href="/devicereadings">Cancel</a>
+    </form>
+  </div>
+</div>

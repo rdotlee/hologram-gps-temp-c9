@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @device.errors.any? %>
+  <% @device.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Device #<%= @device.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_device/<%= @device.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @device.name %>">
+      </div>
+
+      <!-- Label and input for sim -->
+      <div class="form-group">
+        <label for="sim" class="control-label">
+          Sim
+        </label>
+
+        <input type="text" id="sim" name="sim" placeholder="Sim" class="form-control" value="<%= @device.sim %>">
+      </div>
+
+      <!-- Label and input for hologramdevice_id -->
+      <div class="form-group">
+        <label for="hologramdevice_id" class="control-label">
+          Hologramdevice
+        </label>
+
+        <input type="text" id="hologramdevice_id" name="hologramdevice_id" placeholder="Hologramdevice" class="form-control" value="<%= @device.hologramdevice_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Device
+      </button>
+      or
+      <a href="/devices/<%= @device.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
